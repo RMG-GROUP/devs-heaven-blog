@@ -26,7 +26,7 @@ export default function AnimatedTagCloud({ onSelectTag }: CustomTagCloudProps) {
 
   return (
     <div className="bg-white p-6 shadow-lg rounded-lg">
-      <h2 className="text-xl font-bold mb-4 text-gray-900">Nuage de Tags</h2>
+      <h2 className="text-xl font-bold mb-4 text-gray-900">Tags</h2>
       <div className="w-full h-64">
         <Cloud
           minSize={12}

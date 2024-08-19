@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import FeaturedPosts from './components/FeaturedPosts';
 import AnimatedTagCloud from './components/AnimatedTagCloud';
 
@@ -41,19 +43,19 @@ export default function Home() {
         <div className="w-full md:w-2/3">
           <h1 className="text-4xl font-extrabold mb-8 text-gray-900">Articles récents</h1>
           
-          {/* Barre de Recherche */}
-          <div className="mb-6">
-            <label htmlFor="search" className="block text-sm font-medium text-gray-700">
-              Rechercher par titre ou tag :
-            </label>
+          {/* Barre de Recherche avec Loupe */}
+          <div className="relative mb-6 max-w-md">
             <input
               type="text"
               id="search"
-              placeholder="Entrez un mot-clé..."
+              placeholder="Rechercher par titre ou tag..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="mt-1 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-teal-500 focus:border-teal-500 w-full max-w-md"
+              className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-teal-500 focus:border-teal-500"
             />
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <FontAwesomeIcon icon={faSearch} className="text-gray-400" />
+            </div>
           </div>
 
           {/* Nuage de Tags - Affiché juste après la barre de recherche sur mobile */}
