@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
 
 export const metadata = {
   title: 'Devs.heaven Blog',
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Header />
         <main className="container mx-auto py-12 flex-grow">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -17,14 +17,20 @@ export default function Header() {
           </Link>
           <Link href="/" passHref>
             <span className="text-2xl font-bold text-gray-900 hover:text-teal-600 transition-colors duration-300 cursor-pointer">
-            Devs.heaven Blog
+              Devs.heaven Blog
             </span>
           </Link>
         </div>
         <nav className="space-x-8 text-gray-700">
           <Link href="/" passHref>
-            <span className="text-lg font-medium hover:text-teal-600 transition-colors duration-300 cursor-pointer">
-              Accueil
+          <span className="hover:text-teal-600 transition-colors duration-300 cursor-pointer">
+              <Image
+                src="/images/home-icon.svg"
+                alt="Accueil"
+                width={24}
+                height={24}
+                className="inline-block"
+              />
             </span>
           </Link>
           {/* <Link href="/about" passHref>
