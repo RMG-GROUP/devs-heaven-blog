@@ -3,7 +3,7 @@ title: "Pourquoi les CMS comme WordPress et les plateformes comme Webflow sont d
 excerpt: "Explorez pourquoi les CMS traditionnels tels que WordPress et les plateformes comme Webflow sont dépassés, et comment les nouvelles technologies comme le JAMstack et l'IA façonnent l'avenir du développement web."
 date: "2024-08-19"
 image: "/images/cms-obsolescence.webp"
-tags: ["développement", "WordPress", "JAMstack", "sécurité", "performance", "IA"]
+tags: ["développement", "WordPress", "JAMstack", "sécurité", "performance", "IA", "no-code"]
 featured: true
 ---
 
