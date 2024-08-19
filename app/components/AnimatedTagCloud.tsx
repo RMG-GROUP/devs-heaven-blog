@@ -27,7 +27,7 @@ export default function AnimatedTagCloud({ onSelectTag }: CustomTagCloudProps) {
   return (
     <div className="bg-white p-6 shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-4 text-gray-900">Tags</h2>
-      <div className="w-full h-64">
+      <div className="w-full h-64 overflow-y-scroll"> {/* Ajout de la scrollbar */}
         <Cloud
           minSize={12}
           maxSize={35}

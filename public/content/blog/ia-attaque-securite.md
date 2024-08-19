@@ -5,7 +5,7 @@ date: "2024-08-19"
 image: "/images/ia-attaque-securite.webp"
 tags: ["cybersécurité", "développement", "API"]
 
-featured: true
+featured: false
 ---
 
 # Comment se prémunir contre les attaques exploitant l'IA pour extraire des informations sensibles

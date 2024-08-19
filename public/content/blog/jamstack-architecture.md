@@ -4,7 +4,7 @@ excerpt: "Découvrez les avantages d'une architecture JAMstack pour votre site w
 date: "2024-08-18"
 image: "/images/jamstack-architecture.webp"
 tags: ["développement", "JAMstack", "sécurité", "performance"]
-featured: true
+featured: false
 ---
 
 # Pourquoi adopter une architecture JAMstack pour votre site web
