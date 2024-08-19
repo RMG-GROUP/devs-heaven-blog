@@ -5,6 +5,8 @@ import matter from 'gray-matter';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
+  const page = parseInt(searchParams.get('page') || '1', 10);
+  const limit = parseInt(searchParams.get('limit') || '6', 10);
   const searchTerm = searchParams.get('search')?.toLowerCase() || '';
 
   const files = fs.readdirSync(path.join(process.cwd(), 'public/content/blog'));
@@ -20,6 +22,7 @@ export async function GET(request: Request) {
     };
   });
 
+  // Filtrer les articles en fonction de la recherche
   const filteredPosts = searchTerm
     ? posts.filter((post) =>
         post.frontMatter.title.toLowerCase().includes(searchTerm) ||
@@ -29,5 +32,10 @@ export async function GET(request: Request) {
       )
     : posts;
 
-  return NextResponse.json(filteredPosts);
+  // Pagination
+  const startIndex = (page - 1) * limit;
+  const paginatedPosts = filteredPosts.slice(startIndex, startIndex + limit);
+
+
+  return NextResponse.json(paginatedPosts);
 }
