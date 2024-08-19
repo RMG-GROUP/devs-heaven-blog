@@ -95,7 +95,7 @@ export default function Home() {
               className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-teal-500 focus:border-teal-500"
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-              <Image src="/search-icon.svg" alt="search" width={20} height={20} />
+              <Image src="/images/search-icon.svg" alt="search" width={20} height={20} />
             </div>
           </div>
 
