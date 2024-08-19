@@ -3,7 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const searchTerm = searchParams.get('search')?.toLowerCase() || '';
+
   const files = fs.readdirSync(path.join(process.cwd(), 'public/content/blog'));
 
   const posts = files.map((filename) => {
@@ -17,5 +20,14 @@ export async function GET() {
     };
   });
 
-  return NextResponse.json(posts);
+  const filteredPosts = searchTerm
+    ? posts.filter((post) =>
+        post.frontMatter.title.toLowerCase().includes(searchTerm) ||
+        post.frontMatter.tags.some((tag: string) =>
+          tag.toLowerCase().includes(searchTerm)
+        )
+      )
+    : posts;
+
+  return NextResponse.json(filteredPosts);
 }

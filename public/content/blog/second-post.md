@@ -3,6 +3,7 @@ title: 'Mon deuxième article'
 excerpt: 'Un aperçu de mon deuxième article.'
 date: '2024-08-19'
 image: '/content/blog/second-post-image.jpg'
+tags: ['react', 'javascript']
 ---
 
 # Bienvenue sur mon deuxième article
