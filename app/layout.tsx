@@ -5,6 +5,9 @@ import Footer from './components/Footer';
 export const metadata = {
   title: 'Devs.heaven Blog',
   description: 'Le blog pour les développeurs',
+  icons: {
+    icon: 'images/logo.svg',
+  }
 };
 
 export default function RootLayout({

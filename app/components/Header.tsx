@@ -17,7 +17,7 @@ export default function Header() {
           </Link>
           <Link href="/" passHref>
             <span className="text-2xl font-bold text-gray-900 hover:text-teal-600 transition-colors duration-300 cursor-pointer">
-              devs.heaven
+            Devs.heaven Blog
             </span>
           </Link>
         </div>
