@@ -1,24 +1,8 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { NextResponse } from "next/server";
+import { getAllPosts } from "@/lib/content";
 
-export async function GET() {
-  const files = fs.readdirSync(path.join(process.cwd(), 'public/content/blog'));
+export const dynamic = "force-static";
 
-  const posts = files.map((filename) => {
-    const filePath = path.join(process.cwd(), 'public/content/blog', filename);
-    const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
-    const { data: frontMatter } = matter(markdownWithMeta);
-
-    return {
-      slug: filename.replace('.md', ''),
-      frontMatter,
-    };
-  });
-
-  // Filtrer pour récupérer uniquement les articles "featured"
-  const featuredPosts = posts.filter((post) => post.frontMatter.featured).slice(0, 3);
-
-  return NextResponse.json(featuredPosts);
+export function GET() {
+  return NextResponse.json(getAllPosts().filter((post) => post.frontMatter.featured).slice(0, 3));
 }
