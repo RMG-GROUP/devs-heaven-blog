@@ -12,7 +12,7 @@ export default function AnimatedTagCloud({ onSelectTag }: CustomTagCloudProps) {
 
   useEffect(() => {
     async function fetchTags() {
-      const res = await fetch('/api/tags');
+      const res = await fetch('/api/tags.json');
       const data: string[] = await res.json();
       const formattedTags = data.map((tag) => ({
         value: tag,

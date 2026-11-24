@@ -32,8 +32,18 @@ export default function Home() {
 
   async function loadPosts(page: number, searchTerm: string) {
     setLoading(true);
-    const res = await fetch(`/api/posts?page=${page}&limit=6&search=${searchTerm}`);
-    const newPosts: Post[] = await res.json();
+    // Export statique : liste complète chargée, puis filtrée et paginée ici
+    const res = await fetch(`/api/posts.json`);
+    const allPosts: Post[] = await res.json();
+    const term = searchTerm.toLowerCase();
+    const matching = term
+      ? allPosts.filter(
+          (post) =>
+            post.frontMatter.title.toLowerCase().includes(term) ||
+            (post.frontMatter.tags ?? []).some((tag: string) => tag.toLowerCase().includes(term))
+        )
+      : allPosts;
+    const newPosts = matching.slice((page - 1) * 6, page * 6);
 
     // Filtrer les articles déjà existants en vérifiant leurs slugs
     const filteredNewPosts = newPosts.filter(newPost => {

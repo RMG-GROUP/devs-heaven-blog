@@ -1,20 +1,13 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { NextResponse } from "next/server";
+import { getAllPosts, getPost } from "@/lib/content";
 
-interface Params {
-  slug: string;
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getAllPosts().map(({ slug }) => ({ slug }));
 }
 
-export async function GET(request: Request, { params }: { params: Params }) {
-  const { slug } = params;
-  const filePath = path.join(process.cwd(), 'public/content/blog', `${slug}.md`);
-  const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
-  const { data: frontMatter, content } = matter(markdownWithMeta);
-
-  return NextResponse.json({
-    frontMatter,
-    content,
-  });
+export function GET(_req: Request, { params }: { params: { slug: string } }) {
+  return NextResponse.json(getPost(params.slug));
 }

@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "devs-heaven-blog",
+  "compatibility_date": "2026-11-01",
+  // Site statique : Next.js exporté dans out/, servi sans calcul serveur
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
